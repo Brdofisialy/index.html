@@ -368,6 +368,53 @@
         border-radius: 5px;
         border: none;
     }
+  /*----//----/ NOTIFICATIONS /-------//----*/
+
+    .notification {
+        position: fixed;
+        bottom: 50px;
+        right: 10px;
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        animation:bounce 0.5s ease-in-out infinite;
+        z-index: 9999;
+    }
+    .notification-text {
+        flex: 1;
+    }
+    .notification-text h4 {
+        margin: 0;
+        font-size: 16px;
+        color: black;
+    }
+    .notification-text z {
+        margin: 3px 0 0;
+        font-size: 14px;
+        color: #555;
+    }
+    .notification-text span{
+        color: red;
+        opacity: 0.5;
+    }
+    .title{
+        color: red;
+        text-align: center;
+    }
+        @keyframes fadeIn {
+
+        from { opacity: 0; transform: translateY(20px); }
+
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0);}
+        50% {transform: translateY(-8px);}
     </style>
 <body>
   <!-------//------/ TETES/-------//-------->
@@ -419,6 +466,13 @@
     
     <!-----//------/ CONTACTS /-----//------>
     <section id="contact">
+          <!-----//-----/ NOTIFICATION /----//---->
+    <div class="notification" id="downloadNotification">🔰
+    <div class="notification-text">
+        <h4>Contact <span>Pas encore disponnible</span></h4>
+        <z>Veuillez utiliser une autre servive.</z>
+    </div>
+    </div>
             <h1 class="form-title">Contact <span>Form</span></h1>
             <h6>Veuillez completer les formulaires pour que nous vous aiderons.</h6>
             <form>
