@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        outline: none;
+        border: none;
+        font-family: system-ui;
+    }
+    
+    
+/*--------//------/ TETES /--------//------*/
+  header {
+        background:  #0b1220;
+        color: #fff;
+        font-size: 12px;
+        position: fixed;
+        width: 100%;
+        padding: 1rem 1rem;
+        height: 74px;
+        z-index: 1000;
+        transition: all 0.3s;
+    }
+    header h1 {
+        font-size: 2.0em;
+        margin: 0;
+        color: #F06292;
+    }
+    h2{
+        background-color: #ffe082;
+        width: 110%;
+        color: #40c4ff;
+        margin: 1px;
+        margin-left: -5%;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    h2 span{
+        font-size: 1rem;
+        color: white;
+    }
+    nav {
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        padding: 0.1em;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 6px;
+        font-size: 0.8em;
+        transition: color 0.3s, transform 0.2s;
+        perspective: 500px;
+    }
+    nav a:active {
+        transform: rotateX(15deg) translateZ(5px);
+        color: #F06292;
+        transition: transform 0.1s;
+    }
+    nav a:hover {
+        color: #F06292;
+    }
+    
+    /*-----//-----/ SECTIONS /-----//------*/
+    section {
+        display: none;
+        max-width: 500px;
+        padding: 9em 1em;
+        color: #222;
+    }
+    section.active {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    .hero {
+        color: #fff;
+        text-align: center;
+    }
+    .hero p {
+        font-size: 17px;
+        max-width: 700px;
+        margin: auto;
+        color: black;
+        font-weight: 400;
+        text-align: center;
+    }
+    p span{
+        color: #2e7d32;
+        font-weight: 500;
+        font-size: 19px;
+    }
+    .service {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        background: green;
+        margin: 10px;
+        margin-top: 5%;
+        padding: 5px;
+        color: white;
+        border-radius: 8px;
+    }
+    .client {
+        font-size: 14px;
+        background:  white;
+        height: 6%;
+        color: #F06292;
+        font-weight: 500;
+    }
+    .client span {
+        color: black;
+        opacity: 0.9;
+    }
+    .image{
+        width: 90%;
+        height: 60%;
+        opacity: 0.7;
+    }
+    .faq {
+        margin-left: auto;
+        max-width: 900px;
+        font-size: 13px;
+        padding: 1rem;
+    }
+    .faq h4 {
+        text-align: center;
+        color: #2196F3;
+        font-size: 17px;
+    }
+    .faq-item {
+        border: 1px;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+    .faq-question {
+        width: 100%;
+        color: black;
+        padding: 1rem;
+        text-align: left;
+        background: #f9f9f9;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-answer {
+        display: none;
+        padding: 1rem;
+        font-size: 15px;
+        margin-top: 10px;
+        text-align: center;
+        color: white;
+        background: #bdbdbd;
+        border-radius: 3px;
+    }
+    footer {
+        text-align: center;
+        background: #0a3d62;
+        color: #a2b1c6;
+        padding: 1em;
+        font-size: 0.9em;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    /*-----//-----/ SERVICES /-----//-----*/
+
+    .services {
+        max-width: 1200px;
+        margin: auto;
+        padding: 4rem 1rem;
+    }
+    .services-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .grid {
+        display: grid;
+        gap: 2rem;
+    }
+    h4{
+        color: red;
+        opacity: 0.6;
+        font-size: 20px;
+    }
+@media(min-width:768px) {
+    .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }}
+@media(min-width:992px) {
+    .grid-3 {
+            grid-template-columns: repeat(3,1fr);
+        }}
+    .service-card {
+        background: #eeeeee;
+        color: #F06292;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #F06292;
+    }
+    .service-icon {
+        font-size: 2rem;
+        color: #1e3c72;
+        margin-bottom: 1rem;
+    }
+    .service-card h3 {
+        margin-bottom: 0.5rem;
+        color: #1e3c72;
+    }
+    h3 span{
+        color: red;
+        font-size: 20px;
+        opacity: 0.7;
+    }
+    .service-card ul {
+        padding-left: 1rem;
+    }
+    ul span{
+        color: red;
+        opacity: 0.6;
+    }
+    .service-card lu {
+        margin: 0.9rem 0;
+        color: black ;
+    }
+@media(max-width:768px) {
+    .grid-3 {
+            grid-template-columns: 1fr;
+        }}
+    .services-header p {
+        color: black ;
+    }
+    
+    /*-----//-----/ CONTACTS /------//-----*/
+    .form-title {
+        text-align: center;
+        color: #333;
+        color: #764ba2;
+        margin-bottom: 30px;
+        font-size: 26px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .form-title span {
+        color:  #667eea;
+    }
+
+    .form-title::before {
+        content: '';
+        position: absolute;
+        height: 3px;
+        left: 0%;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #71b7e6, #9b5b);
+        }
+    h6{
+        font-size: 17px;
+        text-align: center;
+        padding: 2rem;
+        color: black;
+        opacity: 0.6;
+    }
+    .name {
+        color: #0a3d62;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        opacity: 0.7;
+    }
+    .sujet {
+        color: #0a3d62;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        opacity: 0.7;
+    }
+    .msg {
+        color: #0a3d62;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        opacity: 0.7;
+    }
+    .message {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        border-color: #2196F3;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        background: transparent;
+    }
+    h5{
+        color: #0a3d62;
+        font-size: 23px;
+    }
+    select:focus,
+    textarea:focus {
+        outline: none;
+        color: black;
+        border-color: #2196F3;
+        box-shadow: 0 0 8px #42A5F5;
+        background-color: transparent;
+    }
+    textarea {
+        background-color: transparent;
+        color: black;
+        resize: vertical;
+        min-height: 120px;
+    }
+    input[type="number"],
+    input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        background-color: transparent;
+        border: 1px solid #2196F3;
+        border-radius: 8px;
+        color: black;
+        font-size: 1.1em;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input[type="number"]:focus,
+    input[type="text"]:focus {
+        border-color: #2196F3;
+        box-shadow: 0 0 8px #42A5F5;
+        color: black;
+    }
+    input::placeholder {
+        color: #7A5BBD;
+        font-size: 17px;
+    }
+    button {
+        background-color: #5d5dfc;
+        text-align: center;
+        border-radius: 6px;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+    input, button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+    }
+    </style>
+<body>
+  <!-------//------/ TETES/-------//-------->
+    <header>
+        <h1>Albums <span>🎶</span></h1>
+        <nav>
+            <a href="#accueil" onclick="showSection('accueil')">Accueil</a>
+            <a href="#Albums" onclick="showSection('albums')">Albums</a>
+            <a href="#contact" onclick="showSection('contact')">Contacts</a>
+            <a href="#services" onclick="showSection('services')">Services</a>
+        </nav>
+        <h2>B.R.D <span>(Boss du Rap Dah-man)</span></h2>
+    </header>
+    
+    <!-----//------/ ACCUEIL /------//------>
+    <section id="accueil" class="active">
+        <div class="hero">
+            <p><span>Bievenue</span> dans le site officiel de l'Artiste Boss du Rap Dah-man, pour plus(...) d'infos veuiller nous contactez .</p>
+        </div>
+        <div class="image">
+            <img src="https://github.com/mickaelrakotoharilala-pixel/Techpronostiques/blob/02ce52b6a13891e8543e3ad40a8afb071ccc42a9/IMG_20251219_073601.jpg" />
+        </div>
+        <div class="service">CONTACTS :
+            <div class="client">Facebook : <span>BRD</span><br>Whats up: <span>+261331120891</span><br> Email : <span>Brdofisialy02gmail. Com</span><br> 
+            </div>
+        </div>
+        <div class="faq">
+            <h4>Questions fréquentes</h4>
+            <div class="faq-item">
+                <button class="faq-question">Inona ny fanalavana ny atao hoe "BRD" ? <span>▼</span></button>
+                <div class="faq-answer">
+                    <p>BRD ( Boss du Rap Dah-man) .</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Inona ny gadona vohiziny ? <span>▼</span></button>
+                <div class="faq-answer">
+                    <p>Ny gadona vohiziny : Rap BOOMBAP ( HIP-HOP & Haintsohaintso Malagasy & Zaza rap taiza.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Fanampi-panazavana... <span>▼</span></button>
+                <div class="faq-answer">
+                    <p>Tsindrio ny contact na mandefasa hafatra miafina dia valinay ny hafatrao tompoko.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-----//------/ CONTACTS /-----//------>
+    <section id="contact">
+            <h1 class="form-title">Contact <span>Form</span></h1>
+            <h6>Veuillez completer les formulaires pour que nous vous aiderons.</h6>
+            <form>
+                <h5>Envoyez-nous des messages</h5>
+                <label for="name" class="name">Nom complet :</label>
+                <input type="text" id="name" required>
+                <label for="subject" class="sujet">Sujet :</label>
+                <input type="text" id="subject">
+                <label for="message" class="msg">Message :</label>
+                <textarea id="message" rows="5"class="message" placeholder="Envoyer nous des messages ..."></textarea>
+                <button type="submit" class="submit">Envoyer le message</button>
+            </form>
+    </section>
+    
+    <!-----//------/ SERVICES /-----//------>  
+    <section id="services">
+<div class="services-header fadeUp">
+<h4>Ce que nous offrons</h4>
+<p>
+Nous combinons expertise technique et vision stratégique pour vous fournir des solutions sur mesure.
+</p>
+</div>
+<div class="grid grid-3">
+    <div class="service-card fadeUp">
+<div class="service-icon">
+🌐
+</div>
+<h3>Creation du Site<span> Mickael Evans</span></h3>
+<p>
+Informations.
+</p>
+<ul>
+<lu>✔ Facebook: <span>Mickael</span></lu><br>
+<lu>✔ Whats App: <span>+261345676335</span></lu><br>
+<lu>✔ Email: <span>Mickaelrakotoharilala@gmail.com</span></lu>
+</ul>
+</div>
+    
+<div class="service-card fadeUp">
+<div class="service-icon">
+💻
+</div>
+<h3>Développement Web</h3>
+<p>
+Des sites modernes et performants.
+</p>
+<ul>
+<lu>✔ Sites vitrines</lu><br>
+<lu>✔ E-commerce</lu><br>
+<lu>✔ Applications web</lu>
+</ul>
+</div>
+<div class="service-card fadeUp">
+<div class="service-icon">
+📱
+</div>
+<h3>Applications Mobiles</h3>
+<p>
+Expérience fluide sur toutes les plateformes.
+</p>
+<ul>
+<lu>✔ iOS et Android</lu><br>
+<lu>✔ Cross-platform</lu><br>
+<lu>✔ Apps d’entreprise</lu>
+</ul>
+</div>
+<div class="service-card fadeUp">
+<div class="service-icon">
+📊
+</div>
+<h3>Analyse de données</h3>
+<p>
+Exploitez vos données pour mieux décider.
+</p>
+<ul>
+<lu>✔ Business Intelligence</lu><br>
+<lu>✔ Machine Learning</lu><br>
+<lu>✔ Tableaux de bord</lu>
+</ul>
+</div>
+</div>
+</section>
+    
+    <!----//-------/ PIEDS /-------//------>
+    <footer>
+        &copy; 2025 | Albums.
+    </footer>
+</body>
+   <script>
+    //----------// SECTION //-----------//
+    const sections = ["accueil", "albums", "contact", "services"];
+    function showSection(id) {
+        sections.forEach(sec => {
+            const el = document.getElementById(sec);
+            if (el) {
+                el.classList.toggle("active", sec === id);
+            }
+        });
+    }
+    
+    //---------// FAQ TOOGLE //---------//
+    document.querySelectorAll(".faq-question").forEach(btn=> {
+        btn.addEventListener("click", ()=> {
+            const answer = btn.nextElementSibling;
+            answer.style.display = answer.style.display === "block"?"none": "block";
+        });
+    });
+    </script>
+  </html>
