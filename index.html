@@ -365,6 +365,32 @@
         border-radius: 5px;
         border: none;
     }
+
+       /* Songs */
+        .songs {
+            margin-top: 30px;
+        }
+        .song {
+            background: #1e1e1e;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .song:hover {
+            background: #2a2a2a;
+        }
+        h7{
+            margin-left: 35%;
+            color: red;
+            font-size: 29px;
+            font-weight: 700;
+        }
+        h3{
+        
+            color: black;
+            opacity: 0.8;
+        }
   /*----//----/ NOTIFICATIONS /-------//----*/
 
     .notification {
@@ -460,6 +486,46 @@
             </div>
         </div>
     </section>
+
+      <section id="albums">
+           <div id="album1" class="songs">
+        <h7>B.R.D</h7>
+        <h3> 🎵 INSPI</h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        
+        <h3> 🎵 Ezaka</h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        
+        <h3> 🎵 Punch life </h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        
+        <h3> 🎵 TSS Masolo </h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        
+        <h3> 🎵 Tonga Masika</h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        
+        <h3> 🎵 Chri bR</h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        
+        <h3> 🎵 Le monde se developpe</h3>
+        <audio controls>
+            <source src="">
+        </audio>
+        </div>
+      </section>
     
     <!-----//------/ CONTACTS /-----//------>
     <section id="contact">
@@ -576,5 +642,11 @@ Exploitez vos données pour mieux décider.
             answer.style.display = answer.style.display === "block"?"none": "block";
         });
     });
+
+     function openAlbum(id) {
+            document.getElementById('albumSection').style.display = 'none';
+            document.querySelectorAll('.songs').forEach(s=>s.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+     }
     </script>
   </html>
